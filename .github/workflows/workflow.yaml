@@ -1,0 +1,42 @@
+name: Build, Push to ECR, and Deploy to EKS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: self-hosted
+      
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Install Git
+        run: |
+          sudo yum update -y
+          sudo yum install -y git
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Log in to Amazon ECR
+        run: |
+          aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.ECR_REPOSITORY }}
+
+      - name: Build and Push Docker Image
+        run: |
+          IMAGE_TAG="v${{ github.run_number }}"
+          docker build -t sample-app .
+          docker tag sample-app:latest ${{ secrets.ECR_REPOSITORY }}:${IMAGE_TAG}
+          docker tag sample-app:latest ${{ secrets.ECR_REPOSITORY }}:latest
+          docker push ${{ secrets.ECR_REPOSITORY }}:${IMAGE_TAG}
+          docker push ${{ secrets.ECR_REPOSITORY }}:latest
