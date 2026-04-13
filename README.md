@@ -18,7 +18,7 @@ kubectl create namespace argocd
 helm install argocd argo/argo-cd --namespace argocd --version 7.7.0
 ```
 
-## Access ArgoCD UI
+## Access ArgoCD UI 
 
 ```
 kubectl port-forward svc/argocd-server -n argocd 8080:443
