@@ -50,6 +50,6 @@ jobs:
         run: |
           git config --local user.email "${{ secrets.EMAIL_ADDRESS }}"
           git config --local user.name "${{ secrets.USER_NAME }}"
-          git add K8s/deployment.yaml
+          git add gitops/basic/grade-submission-api-deployment.yaml
           git commit -m "Update image tag to v${{ github.run_number }} [skip ci]" || exit 0
           git push origin main
