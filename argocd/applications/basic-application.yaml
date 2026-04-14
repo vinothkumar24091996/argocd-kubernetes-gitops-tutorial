@@ -6,12 +6,12 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/rslim087a/argocd-kubernetes-gitops-tutorial.git
+    repoURL: https://github.com/vinothkumar24091996/argocd-kubernetes-gitops-tutorial.git # URL of the GIT repository
     targetRevision: HEAD
-    path: gitops/basic
+    path: gitops/basic # Path to the deployment manifest in the repository
   destination:
     server: https://kubernetes.default.svc
-    namespace: grade-demo
+    namespace: deployment # Namespace to deploy the application
   syncPolicy:
     automated:
       prune: true
