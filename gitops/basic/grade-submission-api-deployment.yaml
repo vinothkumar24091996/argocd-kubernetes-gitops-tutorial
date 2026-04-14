@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: grade-submission-api
-        image: 254185428277.dkr.ecr.us-east-1.amazonaws.com/ardocd-deployment:v14
+        image: 254185428277.dkr.ecr.us-east-1.amazonaws.com/ardocd-deployment:v15
         ports:
           - containerPort: 3000
