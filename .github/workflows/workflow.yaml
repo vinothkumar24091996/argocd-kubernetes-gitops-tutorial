@@ -3,7 +3,7 @@ name: Build, Push to ECR, and Deploy to EKS
 on:
   push:
     branches:
-      - Helm
+      - main
 
 jobs:
   build:
