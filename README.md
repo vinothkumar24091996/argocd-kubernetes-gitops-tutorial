@@ -2,7 +2,7 @@
 
 This repo contains all the code needed to follow along with our **[YouTube Tutorial](https://youtu.be/yj4O0wwkMQI)** or **[Written Article](https://rslim087a.github.io/rayanslim/lesson.html?course=argocd-gitops-course&lesson=introduction)**.
 
-## Prerequisites  
+## Prerequisites
 
 To follow along with this tutorial, you'll need: 
 
