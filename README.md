@@ -10,7 +10,7 @@ To follow along with this tutorial, you'll need:
 - Helm installed: [https://rslim087a.github.io/rayanslim/lesson.html?course=prometheus-grafana-monitoring-course&lesson=helm-installation](https://rslim087a.github.io/rayanslim/lesson.html?course=prometheus-grafana-monitoring-course&lesson=helm-installation)
 - A GitHub account: ([https://github.com/](https://github.com/))
 
-## Install ArgoCD on your Cluster
+## Install ArgoCD on your Cluster 
 ```
 helm repo add argo https://argoproj.github.io/argo-helm
 helm repo update
